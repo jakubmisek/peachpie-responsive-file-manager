@@ -12,13 +12,13 @@
   <ItemGroup>
     <Compile Include="**/*.php" Exclude="obj/**;bin/**" />
     <Content Include="**/*.as;**/*.css;**/*.fla;**/*.gif;**/*.html;**/*.jar;**/*.jpg;**/*.js;**/*.json;**/*.png;**/*.svg;**/*.swf;**/*.txt" Exclude="obj/**;bin/**" CopyToOutputDirectory="PreserveNewest">
-      <PackagePath>contentFiles/any/net9.0/</PackagePath>
+      <PackagePath>contentFiles/any/$(TargetFramework)/</PackagePath>
       <PackageCopyToOutput>true</PackageCopyToOutput>
       <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Content>
     <None Include="ResponsiveFileManager.manifest" Pack="true" PackagePath="ResponsiveFileManager.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Update="Peachpie.App" Version="1.1.11" />
+    <PackageReference Update="Peachpie.App" Version="$(PeachpieVersion)" />
   </ItemGroup>
 </Project>
