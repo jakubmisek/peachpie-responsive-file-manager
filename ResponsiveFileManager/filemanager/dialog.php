@@ -1545,14 +1545,12 @@ if ($config['upload_files']) { ?>
                 if ($src_thumb == "") {
                     $no_thumb = true;
                     
-                    // file_exists() has issues with PeachPie
-                    //if (file_exists('img/' . $config['icon_theme'] . '/' . $file_array['extension'] . ".jpg")) {
-                        //$src_thumb = 'img/' . $config['icon_theme'] . '/' . $file_array['extension'] . ".jpg";
-                    //} else {
-                        //$src_thumb = "img/" . $config['icon_theme'] . "/default.jpg";
-                    //}
+                    $path = 'img/' . $config['icon_theme'] . '/' . $file_array['extension'] . ".jpg";
+                    $src_thumb = file_exists($path)
+                        ? $path
+                        : "img/" . $config['icon_theme'] . "/default.jpg";
 
-                    $src_thumb = 'img/' . $config['icon_theme'] . '/' . $file_array['extension'] . ".jpg";
+                    //$src_thumb = 'img/' . $config['icon_theme'] . '/' . $file_array['extension'] . ".jpg";
 
                     $is_icon_thumb = true;
                 }
